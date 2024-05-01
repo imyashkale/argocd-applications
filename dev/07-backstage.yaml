@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backstage
-          image: backstage:1.0.0
+          image: billyto/backstage:1.0.3
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
