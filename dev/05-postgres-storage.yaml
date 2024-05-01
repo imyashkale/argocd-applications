@@ -1,0 +1,28 @@
+# kubernetes/postgres-storage.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-storage
+  namespace: backstage
+spec:
+  storageClassName: ebs
+  capacity:
+    storage: 1G
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: '/mnt/data'
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-storage-claim
+  namespace: backstage
+spec:
+  storageClassName: ebs
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1G
