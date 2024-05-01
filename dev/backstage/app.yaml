@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backstage
-          image: imyashkale/backstage
+          image: imyashkale/backstage:v1.0
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
