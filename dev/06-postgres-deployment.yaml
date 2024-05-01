@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: postgresdb
           persistentVolumeClaim:
-            claimName: postgres-storage-claim
+            claimName: backstage
 ---
 # kubernetes/postgres-service.yaml
 apiVersion: v1
