@@ -6,30 +6,16 @@ metadata:
   name: backstage
   namespace: backstage
   annotations:
-    # Ingress Core Settings  
-    #kubernetes.io/ingress.class: "alb"
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    # Load Balancer Name
-    alb.ingress.kubernetes.io/load-balancer-name: ultra-dev
-    # Health Check Settings
-    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP 
-    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
-    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
-    alb.ingress.kubernetes.io/success-codes: '200'
-    alb.ingress.kubernetes.io/healthy-threshold-count: '2'
-    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-    ## SSL Settings
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
-    # SSL Redirect Setting
-    alb.ingress.kubernetes.io/ssl-redirect: '443'
-    # External DNS - For creating a Record Set in Route53
-    external-dns.alpha.kubernetes.io/hostname: backstage.imyashkale.com
-    # Ingress Groups
-    alb.ingress.kubernetes.io/group.name: ultra
-    alb.ingress.kubernetes.io/group.order: '30'
+  alb.ingress.kubernetes.io/scheme: internet-facing
+  alb.ingress.kubernetes.io/target-type: ip
+  alb.ingress.kubernetes.io/backend-protocol: HTTP
+  alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":80}, {"HTTPS":443}]'
+  alb.ingress.kubernetes.io/ssl-redirect: "443"
+  alb.ingress.kubernetes.io/group.name: ultra
+  alb.ingress.kubernetes.io/group.order: 20
+  external-dns.alpha.kubernetes.io/hostname: "backstage.imyashkale.com"
 spec:
-  ingressClassName: aws-ingress-class   # Ingress Class
+  ingressClassName: alb   # Ingress Class
   # SSL Certificate Discovery using TLS        
   tls:
   - hosts:
