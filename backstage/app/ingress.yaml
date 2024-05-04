@@ -15,7 +15,7 @@ metadata:
     alb.ingress.kubernetes.io/group.order: "20"
     external-dns.alpha.kubernetes.io/hostname: "backstage.imyashkale.com"
 spec:
-  ingressClassName: alb   # Ingress Class
+  ingressClassName: aws-ingress-class   # Ingress Class
   # SSL Certificate Discovery using TLS        
   tls:
   - hosts:
