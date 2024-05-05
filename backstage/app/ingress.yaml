@@ -15,11 +15,13 @@ metadata:
 spec:
   ingressClassName: aws-ingress-class # Ingress Class
   rules:
-    - host: "backstage.imyashkale.com"
-      http:
-        paths:
-          - path: "/"
-            pathType: Prefix
-            backend:
-              serviceName: backstage
-              servicePort: 80
+  - host: backstage.imyashkale.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: backstage
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
