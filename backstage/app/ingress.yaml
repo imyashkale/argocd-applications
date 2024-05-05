@@ -1,5 +1,3 @@
-# Annotations Reference: https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/annotations/
-#apiVersion: extensions/v1beta1
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -15,14 +13,13 @@ metadata:
     alb.ingress.kubernetes.io/group.order: "20"
     external-dns.alpha.kubernetes.io/hostname: "backstage.imyashkale.com"
 spec:
-  ingressClassName: aws-ingress-class   # Ingress Class
-  # SSL Certificate Discovery using TLS        
-  tls:
-  - hosts:
-    - "*.imyashkale.com"  
-  defaultBackend:
-    service:
-      name: backstage
-      port:
-        number: 80    
-
+  ingressClassName: aws-ingress-class # Ingress Class
+  rules:
+    - host: "backstage.imyashkale.com"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              serviceName: backstage
+              servicePort: 80
