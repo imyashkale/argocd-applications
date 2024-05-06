@@ -10,7 +10,7 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: "443"
     alb.ingress.kubernetes.io/group.name: ultra
-    alb.ingress.kubernetes.io/group.order: "20"
+    alb.ingress.kubernetes.io/group.order: "10"
     external-dns.alpha.kubernetes.io/hostname: "backstage.imyashkale.com"
 spec:
   ingressClassName: aws-ingress-class # Ingress Class
