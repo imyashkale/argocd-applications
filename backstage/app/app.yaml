@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backstage
-          image: imyashkale/backstage:v1.7
+          image: imyashkale/backstage:v1.8
           imagePullPolicy: IfNotPresent
           env:
             - name: LOG_LEVEL
