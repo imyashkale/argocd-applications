@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backstage
-          image: imyashkale/backstage:v1.8
+          image: imyashkale/backstage:v1.16
           imagePullPolicy: IfNotPresent
           env:
             - name: LOG_LEVEL
@@ -23,7 +23,7 @@ spec:
           ports:
             - name: http
               containerPort: 7007
-          envFrom:  
+          envFrom:
             - secretRef:
                 name: postgres-secrets
             - secretRef:
